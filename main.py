@@ -28,43 +28,17 @@ while game_on:
         score.increase_score()
         snake.growing()
 
-    elif snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         score.game_over_msg()
         game_on = False
-    elif snake.head.distance(snake.snake[-1]) < 15:
+    if snake.head.distance(snake.snake[-1]) < 15:
         score.game_over_msg()
         game_on = False
-    for x in snake.snake:
-        if x == snake.head:
-            pass
-        elif snake.head.distance(x) < 10:
-
+    for x in snake.snake[1:]:
+        if snake.head.distance(x) < 10:
             score.game_over_msg()
             game_on = False
 
 
 
-
-# def food():
-#     food = Turtle()
-#     food.shape("circle")
-#     food.color('red')
-#     food.penup()
-#     food.setposition(random.randint(-300, 300), random.randint(-300, 300))
-#     saved_food.append(food)
-#     return saved_food
-# food()
-
-#
-# if abs(saved_food[0].xcor()) == abs(snake[0].xcor()) and abs(food.ycor()) == abs(snake[0].ycor()):
-#     print("you won!")
-#     position(snake[-1].xcor()-20, snake[-1].ycor()-20)
-
-
-
-
-
-
-
 screen.exitonclick()
-
