@@ -29,15 +29,21 @@ while game_on:
         snake.growing()
 
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
-        score.game_over_msg()
-        game_on = False
+        score.highest()
+        snake.reset()
+        # score.game_over_msg()
+        # game_on = False
     if snake.head.distance(snake.snake[-1]) < 15:
-        score.game_over_msg()
-        game_on = False
+        score.highest()
+        snake.reset()
+        # score.game_over_msg()
+        # game_on = False
     for x in snake.snake[1:]:
         if snake.head.distance(x) < 10:
-            score.game_over_msg()
-            game_on = False
+            score.highest()
+            snake.reset()
+            # score.game_over_msg()
+            # game_on = False
 
 
 
