@@ -24,8 +24,8 @@ class Snake:
         """getting the length of the snake array ,start from backwards, change coordinates where the
         last item will replace the item before it"""
         for x in range(len(self.snake) - 1, 0, -1):
-            new_x= self.snake[x - 1].xcor()
-            new_y= self.snake[x - 1].ycor()
+            new_x = self.snake[x - 1].xcor()
+            new_y = self.snake[x - 1].ycor()
             self.snake[x].goto(new_x, new_y)
         self.snake[0].forward(STEPS)
 

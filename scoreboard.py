@@ -1,9 +1,11 @@
 from turtle import Turtle
+
 class Score(Turtle):
     def __init__(self):
         super().__init__()
         self.current_score = 0
-        self.highest_score = 0
+        with open("data.txt") as data:
+            self.highest_score = int(data.read())
         self.color('white')
         self.penup()
         self.goto(0, 270)
@@ -25,6 +27,8 @@ class Score(Turtle):
     def highest(self):
         if self.current_score > self.highest_score:
             self.highest_score = self.current_score
+            with open("data.txt", mode="w") as data_saved:
+                data_saved.write(str(self.highest_score))
             self.current_score = 0
             self.update()
 
